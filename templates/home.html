@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scieteuh</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"> 
+  </head>
+  
+
+  <body>
+    
+
+    <div id="menu" > 
+        <div id="logo">
+
+            <a href="#"><img src="./img/moul.jpeg" alt="mystère" /></a>
+
+        </div>        
+        <div id="menu_link">
+            
+            
+        </div>
+        <div id="soc">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="./img/moul.jpeg"/>
+                    </a>
+                </li>
+                
+                <li><a href="#"><img src="./img/moule.jpeg"/></a></li>
+                <li><a href="#"><img src="./img/logo.png"/></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="index.js"></script>
+  
+
+
+</html>
+
+    <h1>Liste des articles</h1>
+
+
+    <div id="works">
+
+    {% for a in articles %}
+        <div class="work">
+            <a href="/{{a.path}}">
+                <div class="wimg">
+                    {% if a.cover %}
+                        <img src="/static/img/{{a.cover}}"/>
+                    {% else %}
+                        <img src="/static/img/def.jpg"/>
+                    {% endif %}
+                </div>
+                <div class="wdesc">
+                    <h2>{{a.title}}</h2>
+                    <span class="desc">{{a.desc}}</span>
+                    <span class="date">{{a.published}}</span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+    </div>
+
+
+
+
+
+
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+  </body>
+</html>
